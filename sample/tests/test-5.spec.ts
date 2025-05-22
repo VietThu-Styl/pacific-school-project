@@ -48,4 +48,12 @@ test('test', async ({ page }) => {
   // Click on the "Add" button
   await page.getByRole('button', { name: 'Add', exact: true }).click();
 
+  // secondary
+  // Verify the presence of the "Merchant name" input field
+  await expect(page.getByRole('textbox', { name: 'Merchant name' })).toBeVisible();
+  // Input the merchant name
+  await page.getByRole('textbox', { name: 'Merchant name' }).fill('Test Merchant');
+  // Verify the presence of the "Merchant code" input field
+  await expect(page.getByRole('textbox', { name: 'Merchant code' })).toBeVisible();
+
 });
